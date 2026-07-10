@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio website of Ritik Mishra - Agentic AI Developer & AI Engineer">
-    <title>ritik mishra</title>
+    <meta name="description" content="Get in touch with Ritik Mishra - Agentic AI Developer & AI Engineer">
+    <title>ritik mishra | contact</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <!-- Side Social Dock (Large Screen Orbit Dock) -->
+    <!-- Side Social Dock -->
     <div class="social-dock" aria-label="Social connections">
         <a href="https://github.com/iamtheorm" target="_blank" rel="noopener noreferrer" class="social-dock-item" title="github">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -69,76 +69,37 @@
         </a>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero" role="banner">
+    <!-- Contact Section -->
+    <section id="contact" class="contact" style="padding-top: 10rem; min-height: 85vh;">
         <div class="container">
-            <!-- Timeline fade-in/out visual accent line -->
-            <div class="hero-timeline-line"></div>
-            
-            <div class="hero-content reveal">
-                <!-- Profile Pic Frame & Pulsating Online Status Badge -->
-                <div class="pfp-container">
-                    <div class="pfp-frame">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-                            <rect width="100" height="100" fill="#070a18"/>
-                            <circle cx="50" cy="40" r="18" stroke="#f4cd67" stroke-width="2.5" fill="none"/>
-                            <path d="M20 80C20 62 33 58 50 58C67 58 80 62 80 80" stroke="#f4cd67" stroke-width="2.5" fill="none"/>
-                            <path d="M15 35L5 40L15 45" stroke="#8bb8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M85 35L95 40L85 45" stroke="#8bb8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="status-badge">
-                        <span class="status-dot"></span>
-                        <span>20 · cs engineer & ai developer</span>
-                    </div>
+            <h2 class="section-title reveal">get in touch</h2>
+            <div class="contact-content reveal">
+                <div class="contact-text">
+                    <p>
+                        i'm always open to discussing self-correcting agents, edge ml deployments, computer vision architectures, or exciting project collaborations. reach out via form or email at <strong>ritikmis16@gmail.com</strong>.
+                    </p>
                 </div>
-
-                <p class="hero-subrole">agentic ai / computer vision</p>
-                
-                <div class="relative">
-                    <p class="hero-title-greeting">hi, i'm</p>
-                    <h1 class="hero-title-name">ritik mishra</h1>
-                </div>
-
-                <p class="hero-description">
-                    i build self-correcting agents and edge ai systems because i want to bridge the gap between intelligence, performance, and execution.
-                </p>
-
-                <!-- Tools & Studying rows -->
-                <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.25rem;">
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;">
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--muted);">tools</span>
-                        <span class="skill-badge">FastAPI</span>
-                        <span class="skill-badge">PyTorch</span>
-                        <span class="skill-badge">Swift</span>
-                        <span class="skill-badge">Docker</span>
+                <form class="contact-form" id="contactForm" aria-label="Contact form">
+                    <div class="form-group">
+                        <label for="name">name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
                     </div>
-                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;">
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--muted);">studying</span>
-                        <span class="skill-badge">agentic loops</span>
-                        <span class="skill-badge">LLM finetuning</span>
-                        <span class="skill-badge">computer vision</span>
-                        <span class="skill-badge">edge inference</span>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
                     </div>
-                </div>
-
-                <!-- Blinking cursor command training line -->
-                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--muted); margin-bottom: 2.5rem;">
-                    <span style="color: rgba(244, 205, 103, 0.65); font-weight: bold;">&gt;</span> currently training: <span style="color: var(--accent-secondary);">agentic loops & edge AI reasoning</span><span class="blinking-caret"></span>
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary">
-                        <span>view my work</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <a href="contact.html" class="btn btn-secondary">get in touch</a>
-                </div>
+                    <div class="form-group">
+                        <label for="message">message</label>
+                        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>send message</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
-
-
 
     <!-- Footer -->
     <footer class="footer">

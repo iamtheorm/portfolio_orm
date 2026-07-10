@@ -3,17 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollReveal();
     initFormHandler();
+    initButtonGlow();
 });
 
-/* ===== Navigation Scrolling & ScrollSpy ===== */
+/* ===== Navigation Scrolling & Active States ===== */
 function initNavigation() {
     const navbar = document.querySelector('.navbar');
-    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
     if (!navbar) return;
 
-    // Smooth scroll behavior for navigation links
+    // Smooth scroll behavior for same-page hash links (if any remain)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -27,36 +27,59 @@ function initNavigation() {
         });
     });
 
-    // Update active nav link based on scroll spy position
+    // Update active nav link based on URL pathname
     function updateActiveNav() {
-        let current = '';
-        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Shrink / darken the floating pill navbar slightly on scroll
-        if (scrollPosition > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        const path = window.location.pathname;
+        let page = path.split('/').pop();
+        if (page === '' || page === '/') {
+            page = 'index.html';
         }
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollPosition >= sectionTop - 180) {
-                current = section.getAttribute('id');
-            }
-        });
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            const href = link.getAttribute('href');
+            if (page === href) {
                 link.classList.add('active');
             }
         });
     }
 
-    window.addEventListener('scroll', updateActiveNav);
-    updateActiveNav(); // trigger once on load
+    // Shrink / darken the floating pill navbar slightly on scroll
+    function handleNavbarScroll() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPosition > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    window.addEventListener('scroll', handleNavbarScroll);
+    handleNavbarScroll(); // trigger once on load
+    updateActiveNav();   // set active menu item
+}
+
+/* ===== Button Click Glow Effect ===== */
+function initButtonGlow() {
+    const clickableElements = document.querySelectorAll(
+        '.btn, .social-dock-item, .mobile-social-item, .nav-menu a, .contact-form button, .project-link'
+    );
+    
+    clickableElements.forEach(element => {
+        element.addEventListener('click', () => {
+            // Remove first if already present
+            element.classList.remove('glow-active');
+            // Force redraw/reflow to reset keyframe animation
+            void element.offsetWidth;
+            // Add glow active class
+            element.classList.add('glow-active');
+            
+            // Remove after animation finishes (600ms matching CSS duration)
+            setTimeout(() => {
+                element.classList.remove('glow-active');
+            }, 600);
+        });
+    });
 }
 
 /* ===== Viewport Scroll Reveal Observer ===== */
