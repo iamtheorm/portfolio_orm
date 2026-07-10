@@ -128,10 +128,20 @@ function initFormHandler() {
             return;
         }
         
-        // Display toast message in lowercase style to match reference aesthetics
-        showToast(`thank you for your message, ${name.toLowerCase()}! i'll get back to you soon.`, 'success');
-        
-        contactForm.reset();
+        // Submit using AJAX to Netlify
+        const formData = new FormData(contactForm);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            showToast(`thank you for your message, ${name.toLowerCase()}! i'll get back to you soon.`, 'success');
+            contactForm.reset();
+        })
+        .catch(() => {
+            showToast('unable to submit. please try again.', 'error');
+        });
     });
 }
 
